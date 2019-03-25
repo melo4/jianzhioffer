@@ -124,3 +124,46 @@ def quick_sort(lists, left, right):
     quick_sort(lists, low, left-1)
     quick_sort(lists, left+1, high)
     return lists
+
+def merge_sort(lists):
+    '''
+    归并排序，将已有序子序列合并，得到完全有序的序列
+    O(nlogn), O(n) 稳定
+    '''
+    if len(lists) <= 1:
+        return lists
+    num = len(lists) // 2
+    left = merge_sort(lists[:num])
+    right = merge_sort(lists[num:])
+    return merge(left, right)
+def merge(left, right):
+    result = []
+    i ,j = 0, 0
+    while i < len(left) and j < len(right):
+        if left[i] <= right[j]:
+            result.append(left[i])
+            i += 1
+        else:
+            result.append(right[j])
+            j += 1
+    result += left[i:]
+    result += right[j:]
+    return result
+
+def radix_sort(lists):
+    '''
+    基数排序按照低位先排序，然后收集；再按照高位排序，然后再收集；依次类推，直到最高位。
+    '''
+    import math
+    def radix_sort(lists, radix=10):
+        k = int(math.ceil(math.log(max(lists), radix)))
+        bucket = [[] for i in range(radix)]
+        for i in range(1, k + 1):
+            for j in lists:
+                bucket[j // (radix ** (i - 1)) % (radix ** i)].append(j)
+            del lists[:]
+            for z in bucket:
+                lists += z
+                del z[:]
+        return lists
+
