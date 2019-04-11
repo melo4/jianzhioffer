@@ -22,6 +22,13 @@ def josephus(n, m):
             index = (index + 1) % n
     return
 
-josephus(10,6)
 
 
+# 递推公式法 f(n,m) = (f(n-1,m) + m) % n
+def josephus1(n, m):
+    index = 1
+    for i in range(2, n+1):
+        index = (index+m) % i
+    return index
+
+print(josephus1(10,6))
