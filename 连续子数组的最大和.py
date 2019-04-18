@@ -10,7 +10,7 @@ class Solution:
         if not alist:
             return
         max_value = alist[0]
-        tmpSum = 0
+        tmpSum = alist[0]
         for i in range(1, len(alist)):
             if tmpSum < 0:
                 tmpSum = alist[i]
@@ -27,6 +27,7 @@ class Solution:
             return
         max_value = alist[0]
         dp = [0] * (len(alist)+1)
+        dp[0] = alist[0]
         for i in range(1, len(alist)):
             if dp[i-1] < 0:
                 dp[i] = alist[i]
