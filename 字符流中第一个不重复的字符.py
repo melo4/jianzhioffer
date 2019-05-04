@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 # @Time    : 2019/4/16 下午4:33
 # @Author  : Meng Xiao
+
 class Solution:
     def __init__(self):
         self.dic = {}
