@@ -43,10 +43,11 @@ class Solution:
             cur.next = pHead.next
             pHead.next = cur
             cur = next
+        return pHead
 
     def reversed3(self, pHead):
         # 递归 不带头结点
-        if not pHead or not pHead.next:
+        if not pHead or not pHead.next:  # 无节点或一个节点 。不需要反转
             return pHead
         else:
             newHead = self.reversed3(pHead.next)
@@ -63,7 +64,6 @@ class Solution:
         while node != None:
             s = s + str(node.val)
             node = node.next
-
         print (s)
 
     def createLinkList(self, linklist_str):
@@ -82,6 +82,6 @@ class Solution:
 s = Solution()
 str1 = '123456'
 lis = s.createLinkList(str1)
-lis1 = s.reversed1(lis)
-
+lis1 = s.reversed3(lis)
+s.printLinkList(lis)
 s.printLinkList(lis1)
