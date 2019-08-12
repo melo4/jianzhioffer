@@ -52,4 +52,4 @@ class Solution:
 
 
 s = Solution()
-print(s.maxSubStr('BDCABA','ABCBDAB'))
+print(s.maxSubSequence('FOSH','FISH'))
