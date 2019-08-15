@@ -1,21 +1,39 @@
-# -*- coding: utf-8 -*-
-# @Time    : 2019/3/25 下午1:47
-# @Author  : Meng Xiao
-def squareD(n):
-    low = 0
-    if n < 1:
-        high = 1
-    else:
-        high = n
-    mid = (low + high) / 2
-    last = 0
-    while(abs(mid - last) > 1e-10):
-        if (mid*mid) > n:
-            high = mid
-        else:
-            low = mid
-        last = mid
-        mid = (high+low) / 2
+class TrieNode:
+    def __init__(self):
+        self.is_word = False
+        self.data = {}
 
-    return mid
-print(squareD(25))
+class Trie:
+    def __init__(self):
+        self.root = TrieNode()
+    def insert(self, word):
+        node = self.root
+        for letter in word:
+            child = node.data.get(letter)
+            if not child:
+                node.data[letter] = TrieNode()
+            node = node.data[letter]
+        node.is_word = True
+    def search(self, word):
+        cur = ''
+        ans = []
+        node = self.root
+        for letter in word:
+            node = node.data.get(letter)
+            cur += letter
+            if not node:
+                return ans
+            if (node.is_word == True):
+                ans.append(cur)
+        return ans
+
+trie = Trie()
+s = "abcdefg"
+d = ['ab','abc','abcd','bcd','bcde','bde','efg']
+for x in d:
+    trie.insert(x)
+print(trie.root.data)
+for i in range(0,len(s)):
+    lst = trie.search(s[i:])
+    if(len(lst)!=0):
+        print(lst)

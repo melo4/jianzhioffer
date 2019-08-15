@@ -50,6 +50,25 @@ class Solution:
         print(s1[start_index:start_index+maxLength])
         return maxLength
 
+    # 最长上升子序列
+    def maxIncrease(self, arr):
+        if not arr:
+            return 
+        maxLen = 0
+        n = len(arr)
+        dp = [1] * n
+        for i in range(n):
+            for j in range(i):
+                if arr[j] < arr[i]:
+                    dp[i] = max(dp[j]+1, dp[i])
+        maxLen = max(dp)
+        res = []
+        for i in range(n-1, -1, -1):
+            if dp[i] == maxLen:
+                res.append(arr[i])
+                maxLen -= 1
+        print(res[::-1])
+        return max(dp)
 
 s = Solution()
-print(s.maxSubSequence('FOSH','FISH'))
+print(s.maxIncrease([1,5,2,6,7,3]))
