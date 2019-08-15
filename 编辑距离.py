@@ -24,4 +24,4 @@ class Solution:
         return edit[n1][n2]
 
 s = Solution()
-print(s.editDistance('abc', 'cba'))
+print(s.editDistance('aaa', 'aab'))
