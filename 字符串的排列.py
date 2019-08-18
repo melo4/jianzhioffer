@@ -33,4 +33,4 @@ class Solution:
                 res.append(res[j]+[i])
         return res
 s = Solution()
-print(s.Combination('abc'))
+print(s.Permutation('111324'))
