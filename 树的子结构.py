@@ -13,9 +13,9 @@ class Solution:
             if pRoot1.val == pRoot2.val:
                 result = self.DoesTree1haveTree2(pRoot1, pRoot2)
             if not result:
-                result = self.HasSubtree(pRoot1.left, pRoot2)
+                result = self.HasSubTree(pRoot1.left, pRoot2)
             if not result:
-                result = self.HasSubtree(pRoot1.right, pRoot2)
+                result = self.HasSubTree(pRoot1.right, pRoot2)
         return result
 
 
