@@ -21,7 +21,7 @@ class Solution:
                 else:
                     d = 1
                 edit[i][j] = min(edit[i-1][j]+1, edit[i][j-1]+1, edit[i-1][j-1]+d)
-        return edit[n1][n2]
+        return edit#
 
 s = Solution()
-print(s.editDistance('aaa', 'aab'))
+print(s.editDistance('abcf', 'abde'))

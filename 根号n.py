@@ -10,14 +10,14 @@ def mySqrt1(x):
     if x <= 0:
         return 0
     min_F = 0.001
-    begin = float(1)
+    begin = float(0)
     end = x / 2 + 1
     mid = begin + (end-begin) / 2
     while (end-begin) > min_F:
         if (x-mid*mid) > min_F:
-            begin = mid
+            begin = mid + min_F
         elif (mid*mid-x) > min_F:
-            end = mid
+            end = mid - min_F
         elif abs(x-mid*mid) < min_F:
             break
         mid = begin + (end-begin) / 2
@@ -57,4 +57,4 @@ def mySqrt3(x):
         last_res = res
         res = (res+x/res)/2
     return res
-print(mySqrt3(8))
+print(mySqrt1(8))
