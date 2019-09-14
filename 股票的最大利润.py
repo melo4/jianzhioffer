@@ -63,7 +63,18 @@ class Solution:
         return maxProfit
 
     # 允许K次交易
-
-
-
+    # https://blog.csdn.net/Dr_Unknown/article/details/51939121
+    def maxProfit_k(self, k, prices):
+        if len(prices) < 2:
+            return 0
+        if k > len(prices):
+            return self.maxProfit(prices)
+        local = [[0 for i in range(k+1)] for j in range(len(prices))]
+        globa = [[0 for i in range(k + 1)] for j in range(len(prices))]
+        for i in range(1, len(prices)):
+            diff = prices[i] - prices[i-1]
+            for j in range(1, k+1):
+                local[i][j] = max(globa[i-1][j-1]+max(0,diff), local[i-1][j]+diff)
+                globa[i][j] = max(local[i][j], globa[i-1][j])
+        return globa[len(prices)-1][k]
 
