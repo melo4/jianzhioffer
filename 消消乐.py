@@ -10,8 +10,9 @@ def xiaoxiaole(a):
     while(i<lena):
         flag = False
         while(i<lena and len(stack)>0 and stack[-1] == a[i]):
-            i += 1
-            flag = True
+            if i < len(a)-2 and a[i+1] != a[i+2]:
+                i += 1
+                flag = True
         if(flag):
             stack.pop()
         else:
@@ -21,6 +22,6 @@ def xiaoxiaole(a):
     return stack
 
 if __name__ == "__main__":
-    a = [2,2,2]
+    a = [1,4,2,2,3,3,2,4,1]
     s = xiaoxiaole(a)
     print(s)

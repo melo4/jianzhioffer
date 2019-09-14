@@ -21,7 +21,7 @@ class Solution:
         mid.next = None
         l1 = self.mergesort(l1)
         l2 = self.mergesort(l2)
-        return  self.mergeTwoLists(l1, l2)
+        return self.mergeTwoLists(l1, l2)
 
     def mergeTwoLists(self, l1, l2):
         if l1 == None:
