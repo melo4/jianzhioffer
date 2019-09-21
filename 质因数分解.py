@@ -25,4 +25,4 @@ class Solution:
 
 
 s = Solution()
-print(s.prime_de(45))
+print(s.prime_de(4))

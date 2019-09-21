@@ -28,7 +28,7 @@ class Solution:
             if not hasPath:
                 pathLength -= 1
                 visited[row * cols + col] = False
-            return hasPath
+        return hasPath
 
 
 
